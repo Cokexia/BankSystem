@@ -11,7 +11,7 @@ import system.User;
 public class BankSystem {
     static Scanner sc = new Scanner(System.in);
     static List<User> list = new ArrayList<>();
-    static User currentUser = null; // 新增了一个登录状态，作用是确保登录成功才能进行5个操作
+    static User currentUser = null; // 加入一个登录状态，作用是确保登录成功才能进行7个操作
                                     // 退出时再将登录状态清空
     static final String FILE_PATH = "Your Filepath";    //添加一个user.txt存储用户信息
     private static final String JDBC_URL = "Your JDBC_URL ?useSSL=false&serverTimezone=UTC";//？后面的参数可调可不调
@@ -163,7 +163,7 @@ public class BankSystem {
         String password = sc.next();
         User newUser = new User(username, password, phone, sex, "0");
         list.add(newUser);
-        saveUsersToFile(); // 调用封装的方法写入文件
+        saveUsersToFile(); 
         System.out.println("注册成功！");
         syncUserToDatabase(newUser);
         System.out.println("已同步到数据库！");
